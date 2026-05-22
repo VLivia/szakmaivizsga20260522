@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gourmet Moments - Privát séf bérlési rendszer" />
+  <title>Gourmet Moments | Séf Bérlési Rendszer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Fő navigáció">
+      <a class="brand" href="#fooldal">Gourmet Moments</a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Menü megnyitása">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="menu-panel" id="menu-panel">
+        <ul class="menu-links">
+          <li><a href="#fooldal">Főoldal</a></li>
+          <li><a href="#rolunk">Rólunk</a></li>
+          <li><a href="#sefek">Séfek</a></li>
+        </ul>
+
+        <form class="search-form" role="search" aria-label="Keresés">
+          <label for="site-search" class="visually-hidden">Keresés</label>
+          <input id="site-search" name="q" type="search" placeholder="Keresés" />
+          <button type="submit">Keresés</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <main id="fooldal" class="container content-grid">
+    <section class="content-row hero-row">
+      <article class="text-card">
+        <p class="eyebrow">A Legjobb</p>
+        <h1>Privát séfek szállítják házhoz az éttermi élményt.<span>Gourmet Moments</span></h1>
+        <p>
+          A séf most házhoz megy! Mind ismerjük a nagy ünnepi összejöveteleket, vagy épp üzleti
+          ebédek körül kialakult őrületet: amikor akár több napot is eltöltünk a bevásárlással,
+          főzéssel, tálalással és a rendrakással. A házigazdának végül pont arra nincs ideje és
+          energiája, ami miatt az egészet csinálja: a meghívottakra.
+        </p>
+      </article>
+      <figure class="image-card">
+        <img src="voucher.jpg" alt="Vacsoraasztal privát séf által készített fogásokkal" />
+      </figure>
+    </section>
+
+    <section class="content-row" id="rolunk">
+      <figure class="image-card">
+        <img src="catering.jpg" alt="Gourmet catering előételek és tálalás" />
+      </figure>
+      <article class="text-card">
+        <h2>Rólunk</h2>
+        <h3>Gourmet Moments – Privát séfek az Ön otthonában</h3>
+        <p>
+          A Gourmet Moments elhozza Önnek az éttermi élményt az otthona kényelmébe. Legyen szó ünnepi
+          vacsoráról, családi összejövetelről, céges rendezvényről vagy romantikus estéről, nálunk a
+          séf házhoz megy! Így Önnek nem kell többé órákat töltenie bevásárlással, főzéssel és
+          előkészületekkel – csak élveznie kell a tökéletesen megkomponált fogásokat és a társaságot.
+          Csapatunk gondosan válogatott, magasan képzett séfekből áll, akik a világ különböző
+          konyháinak legjavát hozzák el Önnek. Személyre szabott menük, friss alapanyagok,
+          professzionális tálalás – mindezt az Ön igényei szerint.
+        </p>
+      </article>
+    </section>
+
+    <section class="content-row" id="sefek">
+      <article class="text-card">
+        <h2>Séfek</h2>
+        <h3>A világ ízei, egyenesen az Ön asztalára</h3>
+        <p>
+          Séfjeink nemcsak kiváló szakemberek, hanem igazi művészek is a konyhában. Olasz, francia,
+          ázsiai, mexikói, mediterrán vagy vegetáriánus fogások – nálunk minden vendég megtalálja a
+          kedvére valót. Minden privát séfünk több éves tapasztalattal, nemzetközi referenciákkal és
+          szenvedéllyel végzi munkáját, hogy felejthetetlen gasztronómiai élményt nyújtson Önnek és
+          vendégeinek. Legyen szó egy elegáns vacsoráról, egy kötetlen grillpartiról vagy egy exkluzív
+          kóstolóról, séfjeink minden alkalomra tökéletes megoldást kínálnak.
+        </p>
+      </article>
+      <figure class="image-card">
+        <img src="grazing.jpg" alt="Gazdag hidegtál válogatás" />
+      </figure>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
