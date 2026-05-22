@@ -1,0 +1,12 @@
+{
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "java.debug.settings.enableRunDebugCodeLens": false,
+  "java.jdt.ls.java.home": "C:\\Program Files\\Java\\jdk-20",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-20",
+      "path": "C:\\Program Files\\Java\\jdk-20",
+      "default": true
+    }
+  ]
+}

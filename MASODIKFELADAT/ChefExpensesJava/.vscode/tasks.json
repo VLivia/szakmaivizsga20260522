@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build App (JavaFX, CMD)",
+      "type": "shell",
+      "command": "C:\\Windows\\System32\\cmd.exe",
+      "args": [
+        "/c",
+        "if not exist out mkdir out && javac --module-path \"%JAVAFX_LIB%\" --add-modules javafx.controls -d out src\\App.java"
+      ],
+      "problemMatcher": [
+        "$javac"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "Run App (JavaFX, CMD)",
+      "type": "shell",
+      "command": "C:\\Windows\\System32\\cmd.exe",
+      "args": [
+        "/c",
+        "java --module-path \"%JAVAFX_LIB%\" --add-modules javafx.controls -cp out App"
+      ],
+      "dependsOn": "Build App (JavaFX, CMD)"
+    }
+  ]
+}

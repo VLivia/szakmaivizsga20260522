@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Start App (JavaFX)",
+      "request": "launch",
+      "mainClass": "App",
+      "classPaths": [
+        "${workspaceFolder}/out"
+      ],
+      "vmArgs": "--module-path \"${env:JAVAFX_LIB}\" --add-modules javafx.controls",
+      "preLaunchTask": "Build App (JavaFX, CMD)"
+    }
+  ]
+}

@@ -1,23 +1,27 @@
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SpinnerDateModel;
-import javax.swing.JSpinner;
-import javax.swing.table.DefaultTableModel;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -28,146 +32,133 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.text.NumberFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-public class App extends JFrame {
+public class App extends Application {
     private static final String CSV_FILE_NAME = "chef_koltsegek_2025.csv";
     private static final DateTimeFormatter CSV_DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final DateTimeFormatter TABLE_DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy. MM. dd.");
     private static final String[] CATEGORIES = {
             "Travel", "Ingredients", "Accommodation", "Equipment", "Other"
     };
 
-    private final List<ChefExpense> expenses = new ArrayList<>();
-    private final DefaultTableModel tableModel;
-    private final JTable expenseTable;
+    private final ObservableList<ChefExpense> expenses = FXCollections.observableArrayList();
 
-    private final JTextField chefNameField;
-    private final JSpinner dateSpinner;
-    private final JComboBox<String> categoryCombo;
-    private final JTextField amountField;
-    private final JTextArea noteArea;
-    private final JLabel recordCountValueLabel;
-    private final JLabel totalAmountValueLabel;
+    private TableView<ChefExpense> expenseTable;
+    private TextField chefNameField;
+    private DatePicker datePicker;
+    private ComboBox<String> categoryCombo;
+    private TextField amountField;
+    private TextArea noteArea;
+    private Label recordCountValueLabel;
+    private Label totalAmountValueLabel;
 
-    private final Path csvPath;
+    private Path csvPath;
 
-    public App() {
-        super("ChefExpenses");
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(980, 700);
-        setMinimumSize(new Dimension(960, 680));
-        setLocationRelativeTo(null);
-
+    @Override
+    public void start(Stage stage) {
         csvPath = resolveCsvPath();
 
-        tableModel = new DefaultTableModel(new Object[]{
-                "Id", "ChefName", "Datum", "Kategoria", "Osszeg", "Megjegyzes"
-        }, 0) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
+        expenseTable = createExpenseTable();
 
-        expenseTable = new JTable(tableModel);
-        expenseTable.setFillsViewportHeight(true);
-        expenseTable.setRowSelectionAllowed(true);
-        expenseTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        chefNameField = new TextField();
+        datePicker = new DatePicker(LocalDate.now());
+        datePicker.setEditable(false);
 
-        JScrollPane tableScroll = new JScrollPane(expenseTable);
-        tableScroll.setPreferredSize(new Dimension(940, 350));
+        categoryCombo = new ComboBox<>(FXCollections.observableArrayList(CATEGORIES));
+        categoryCombo.setPromptText("Valassz kategoriat");
 
-        JPanel topPanel = new JPanel(new BorderLayout());
-        topPanel.add(tableScroll, BorderLayout.CENTER);
+        amountField = new TextField();
 
-        JPanel formPanel = new JPanel(new GridBagLayout());
-        formPanel.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
+        noteArea = new TextArea();
+        noteArea.setPrefRowCount(4);
+        noteArea.setWrapText(true);
 
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(6, 6, 6, 6);
-        gbc.anchor = GridBagConstraints.WEST;
+        recordCountValueLabel = new Label("0");
+        totalAmountValueLabel = new Label("0.00 EUR");
 
-        chefNameField = new JTextField(22);
-        dateSpinner = createDateSpinner();
-        categoryCombo = new JComboBox<>(CATEGORIES);
-        categoryCombo.setSelectedIndex(-1);
-        amountField = new JTextField(22);
-        noteArea = new JTextArea(5, 45);
-        noteArea.setLineWrap(true);
-        noteArea.setWrapStyleWord(true);
+        GridPane formGrid = new GridPane();
+        formGrid.setHgap(8);
+        formGrid.setVgap(8);
+        formGrid.addRow(0, new Label("Sef neve:"), chefNameField);
+        formGrid.addRow(1, new Label("Datum:"), datePicker);
+        formGrid.addRow(2, new Label("Kategoria:"), categoryCombo);
+        formGrid.addRow(3, new Label("Osszeg (EUR):"), amountField);
+        formGrid.add(new Label("Megjegyzes:"), 0, 4);
+        formGrid.add(noteArea, 1, 4);
 
-        recordCountValueLabel = new JLabel("0");
-        totalAmountValueLabel = new JLabel("0.00 EUR");
+        GridPane.setHgrow(chefNameField, Priority.ALWAYS);
+        GridPane.setHgrow(datePicker, Priority.ALWAYS);
+        GridPane.setHgrow(categoryCombo, Priority.ALWAYS);
+        GridPane.setHgrow(amountField, Priority.ALWAYS);
+        GridPane.setHgrow(noteArea, Priority.ALWAYS);
 
-        int row = 0;
-        addLabelAndControl(formPanel, gbc, row++, "Sef neve:", chefNameField);
-        addLabelAndControl(formPanel, gbc, row++, "Datum:", dateSpinner);
-        addLabelAndControl(formPanel, gbc, row++, "Kategoria:", categoryCombo);
-        addLabelAndControl(formPanel, gbc, row++, "Osszeg (EUR):", amountField);
+        Button addButton = new Button("Hozzaadas");
+        addButton.setOnAction(e -> addExpense());
 
-        gbc.gridx = 0;
-        gbc.gridy = row;
-        gbc.gridwidth = 1;
-        formPanel.add(new JLabel("Megjegyzes:"), gbc);
+        HBox summaryBar = new HBox(
+                10,
+                new Label("Rekordszam:"),
+                recordCountValueLabel,
+                new Label("   Osszes koltseg:"),
+                totalAmountValueLabel,
+                addButton
+        );
+        summaryBar.setAlignment(Pos.CENTER_RIGHT);
 
-        gbc.gridx = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        formPanel.add(new JScrollPane(noteArea), gbc);
+        VBox bottomPanel = new VBox(10, formGrid, summaryBar);
+        bottomPanel.setPadding(new Insets(12));
 
-        JButton addButton = new JButton("Hozzaadas");
-        addButton.addActionListener(e -> addExpense());
-
-        JPanel actionPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 8));
-        actionPanel.add(new JLabel("Rekordszam:"));
-        actionPanel.add(recordCountValueLabel);
-        actionPanel.add(new JLabel("   Osszes koltseg:"));
-        actionPanel.add(totalAmountValueLabel);
-        actionPanel.add(addButton);
-
-        JPanel bottomPanel = new JPanel(new BorderLayout());
-        bottomPanel.add(formPanel, BorderLayout.CENTER);
-        bottomPanel.add(actionPanel, BorderLayout.SOUTH);
-
-        setLayout(new BorderLayout());
-        add(topPanel, BorderLayout.NORTH);
-        add(bottomPanel, BorderLayout.CENTER);
+        BorderPane root = new BorderPane();
+        root.setPadding(new Insets(12));
+        root.setCenter(expenseTable);
+        root.setBottom(bottomPanel);
 
         loadExpenses();
         refreshTable();
         updateSummary();
+
+        Scene scene = new Scene(root, 980, 700);
+        stage.setTitle("ChefExpenses (JavaFX)");
+        stage.setMinWidth(960);
+        stage.setMinHeight(680);
+        stage.setScene(scene);
+        stage.show();
     }
 
-    private static JSpinner createDateSpinner() {
-        SpinnerDateModel model = new SpinnerDateModel(new Date(), null, null, java.util.Calendar.DAY_OF_MONTH);
-        JSpinner spinner = new JSpinner(model);
-        JSpinner.DateEditor editor = new JSpinner.DateEditor(spinner, "yyyy. MMMM dd., EEEE");
-        spinner.setEditor(editor);
-        return spinner;
-    }
+    private TableView<ChefExpense> createExpenseTable() {
+        TableView<ChefExpense> table = new TableView<>(expenses);
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-    private static void addLabelAndControl(JPanel panel, GridBagConstraints gbc, int row, String labelText, java.awt.Component control) {
-        gbc.gridx = 0;
-        gbc.gridy = row;
-        gbc.fill = GridBagConstraints.NONE;
-        gbc.weightx = 0;
-        panel.add(new JLabel(labelText), gbc);
+        TableColumn<ChefExpense, Integer> idColumn = new TableColumn<>("Id");
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        idColumn.setMaxWidth(80);
 
-        gbc.gridx = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.weightx = 1;
-        panel.add(control, gbc);
+        TableColumn<ChefExpense, String> chefNameColumn = new TableColumn<>("ChefName");
+        chefNameColumn.setCellValueFactory(new PropertyValueFactory<>("chefName"));
+
+        TableColumn<ChefExpense, String> dateColumn = new TableColumn<>("Datum");
+        dateColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDate().format(TABLE_DATE_FORMAT)));
+
+        TableColumn<ChefExpense, String> categoryColumn = new TableColumn<>("Kategoria");
+        categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
+
+        TableColumn<ChefExpense, String> amountColumn = new TableColumn<>("Osszeg");
+        amountColumn.setCellValueFactory(data -> new SimpleStringProperty(formatAmount(data.getValue().getAmount())));
+
+        TableColumn<ChefExpense, String> noteColumn = new TableColumn<>("Megjegyzes");
+        noteColumn.setCellValueFactory(new PropertyValueFactory<>("note"));
+
+        table.getColumns().addAll(idColumn, chefNameColumn, dateColumn, categoryColumn, amountColumn, noteColumn);
+        return table;
     }
 
     private Path resolveCsvPath() {
@@ -203,6 +194,7 @@ public class App extends JFrame {
         try (BufferedReader reader = Files.newBufferedReader(csvPath, StandardCharsets.UTF_8)) {
             String line;
             boolean header = true;
+
             while ((line = reader.readLine()) != null) {
                 if (header) {
                     header = false;
@@ -270,28 +262,18 @@ public class App extends JFrame {
             if (warnings.size() > 5) {
                 message.append("... es tovabbi ").append(warnings.size() - 5).append(" figyelmeztetes.");
             }
-            JOptionPane.showMessageDialog(this, message.toString(), "Figyelmeztetes", JOptionPane.WARNING_MESSAGE);
+            showWarning(message.toString());
         }
     }
 
     private void refreshTable() {
-        tableModel.setRowCount(0);
-        expenses.sort((a, b) -> Integer.compare(a.id, b.id));
-        for (ChefExpense exp : expenses) {
-            tableModel.addRow(new Object[]{
-                    exp.id,
-                    exp.chefName,
-                    exp.date.format(DateTimeFormatter.ofPattern("yyyy. MM. dd.")),
-                    exp.category,
-                    formatAmount(exp.amount),
-                    exp.note
-            });
-        }
+        FXCollections.sort(expenses, (a, b) -> Integer.compare(a.getId(), b.getId()));
+        expenseTable.refresh();
     }
 
     private void addExpense() {
         String chefName = chefNameField.getText().trim();
-        Object selectedCategory = categoryCombo.getSelectedItem();
+        String selectedCategory = categoryCombo.getValue();
 
         if (chefName.isEmpty()) {
             showWarning("A sef neve kotelezo.");
@@ -312,15 +294,20 @@ public class App extends JFrame {
             return;
         }
 
-        Date selectedDate = (Date) dateSpinner.getValue();
-        LocalDate localDate = selectedDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate selectedDate = datePicker.getValue();
+        if (selectedDate == null) {
+            showWarning("Valasszon datumot.");
+            datePicker.requestFocus();
+            return;
+        }
 
-        int nextId = expenses.stream().mapToInt(e -> e.id).max().orElse(0) + 1;
+        int nextId = expenses.stream().mapToInt(ChefExpense::getId).max().orElse(0) + 1;
+
         ChefExpense newExpense = new ChefExpense(
                 nextId,
                 sanitizeField(chefName),
-                localDate,
-                selectedCategory.toString(),
+                selectedDate,
+                selectedCategory,
                 amount,
                 sanitizeField(noteArea.getText().trim())
         );
@@ -338,10 +325,10 @@ public class App extends JFrame {
         refreshTable();
         updateSummary();
 
-        int lastRow = tableModel.getRowCount() - 1;
+        int lastRow = expenses.size() - 1;
         if (lastRow >= 0) {
-            expenseTable.setRowSelectionInterval(lastRow, lastRow);
-            expenseTable.scrollRectToVisible(expenseTable.getCellRect(lastRow, 0, true));
+            expenseTable.getSelectionModel().select(lastRow);
+            expenseTable.scrollTo(lastRow);
         }
 
         clearForm();
@@ -351,8 +338,8 @@ public class App extends JFrame {
         chefNameField.setText("");
         amountField.setText("");
         noteArea.setText("");
-        categoryCombo.setSelectedIndex(-1);
-        dateSpinner.setValue(new Date());
+        categoryCombo.setValue(null);
+        datePicker.setValue(LocalDate.now());
         chefNameField.requestFocus();
     }
 
@@ -367,14 +354,16 @@ public class App extends JFrame {
             writer.write("id;chefname;datum;kategoria;osszeg;megjegyzes");
             writer.newLine();
 
-            expenses.sort((a, b) -> Integer.compare(a.id, b.id));
-            for (ChefExpense exp : expenses) {
-                writer.write(exp.id + ";"
-                        + sanitizeField(exp.chefName) + ";"
-                        + exp.date.format(CSV_DATE_FORMAT) + ";"
-                        + sanitizeField(exp.category) + ";"
-                        + exp.amount + ";"
-                        + sanitizeField(exp.note));
+            List<ChefExpense> sorted = new ArrayList<>(expenses);
+            sorted.sort((a, b) -> Integer.compare(a.getId(), b.getId()));
+
+            for (ChefExpense exp : sorted) {
+                writer.write(exp.getId() + ";"
+                        + sanitizeField(exp.getChefName()) + ";"
+                        + exp.getDate().format(CSV_DATE_FORMAT) + ";"
+                        + sanitizeField(exp.getCategory()) + ";"
+                        + exp.getAmount() + ";"
+                        + sanitizeField(exp.getNote()));
                 writer.newLine();
             }
         }
@@ -384,7 +373,7 @@ public class App extends JFrame {
 
     private void updateSummary() {
         recordCountValueLabel.setText(Integer.toString(expenses.size()));
-        double total = expenses.stream().mapToDouble(e -> e.amount).sum();
+        double total = expenses.stream().mapToDouble(ChefExpense::getAmount).sum();
         totalAmountValueLabel.setText(formatAmount(total) + " EUR");
     }
 
@@ -424,22 +413,27 @@ public class App extends JFrame {
     }
 
     private void showWarning(String message) {
-        JOptionPane.showMessageDialog(this, message, "Figyelmeztetes", JOptionPane.WARNING_MESSAGE);
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Figyelmeztetes");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     private void showError(String message) {
-        JOptionPane.showMessageDialog(this, message, "Hiba", JOptionPane.ERROR_MESSAGE);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Hiba");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     public static void main(String[] args) {
         Locale.setDefault(new Locale("hu", "HU"));
-        javax.swing.SwingUtilities.invokeLater(() -> {
-            App app = new App();
-            app.setVisible(true);
-        });
+        launch(args);
     }
 
-    private static final class ChefExpense {
+    public static final class ChefExpense {
         private final int id;
         private final String chefName;
         private final LocalDate date;
@@ -454,6 +448,30 @@ public class App extends JFrame {
             this.category = category;
             this.amount = amount;
             this.note = note;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getChefName() {
+            return chefName;
+        }
+
+        public LocalDate getDate() {
+            return date;
+        }
+
+        public String getCategory() {
+            return category;
+        }
+
+        public double getAmount() {
+            return amount;
+        }
+
+        public String getNote() {
+            return note;
         }
     }
 }

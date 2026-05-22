@@ -1,15 +1,27 @@
-# ChefExpenses Java (Swing)
+# ChefExpenses Java (JavaFX)
 
-Ez a projekt a II. feladat Java (Swing) verzioja.
+Ez a projekt a II. feladat JavaFX verzioja.
 
 ## Futtatas
 
 A projekt gyokerebol:
 
-```powershell
-javac -d out src/App.java
-java -cp out App
+```cmd
+set JAVAFX_LIB=C:\javafx-sdk\lib
+javac --module-path "%JAVAFX_LIB%" --add-modules javafx.controls -d out src\App.java
+java --module-path "%JAVAFX_LIB%" --add-modules javafx.controls -cp out App
 ```
+
+Megjegyzes: a `JAVAFX_LIB` erteke a te JavaFX SDK `lib` mappad legyen.
+Ha ez nincs beallitva vagy rossz utvonalra mutat, az alkalmazas nem indul el (`Module javafx.controls not found`).
+
+## VS Code Start gomb
+
+1. Nyisd meg a Run and Debug nezetet.
+2. Valaszd ki: `Start App (JavaFX)`.
+3. Kattints a Start (zold nyil) gombra.
+
+Ehhez a projekt tartalmazza a beallitasokat a `.vscode/launch.json`, `.vscode/tasks.json` es `.vscode/settings.json` fajlokban.
 
 ## Fajl
 
