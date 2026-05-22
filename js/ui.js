@@ -109,9 +109,13 @@ function showAlert(message, type = 'success') {
     const alertContainer = document.getElementById('alertContainer');
     const alert = document.createElement('div');
     alert.className = `alert alert-${type}`;
+    
+    // HTML escapeelése a XSS megelőzésére
+    const escapedMessage = escapeHtml(message);
+    
     alert.innerHTML = `
-        <p>${message}</p>
-        <button class="alert-close">&times;</button>
+        <p>${escapedMessage}</p>
+        <button class="alert-close" aria-label="Bezárás">&times;</button>
     `;
 
     alertContainer.appendChild(alert);
@@ -120,10 +124,27 @@ function showAlert(message, type = 'success') {
         alert.remove();
     });
 
-    // Automatikus eltávolítás 5 másodperc után
+    // Automatikus eltávolítás - sikeres: 5 sec, hiba: 8 sec
+    const duration = type === 'error' ? 8000 : 5000;
     setTimeout(() => {
-        alert.remove();
-    }, 5000);
+        if (alert.parentNode) {
+            alert.remove();
+        }
+    }, duration);
+}
+
+/**
+ * HTML karakterek escapeelése
+ */
+function escapeHtml(text) {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
 }
 
 /**
