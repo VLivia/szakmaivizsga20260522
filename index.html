@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Séf Bérlés - Gourmet Moments</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">Gourmet Moments</h1>
+            <span class="subtitle">Séf Bérlés</span>
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Keresés..."
+                    aria-label="Séfek keresése"
+                >
+                <button class="search-btn">Keresés</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <h1 class="page-title">Séf Bérlés</h1>
+
+        <!-- Alert Messages -->
+        <div id="alertContainer" class="alert-container"></div>
+
+        <!-- Chefs List -->
+        <div id="chefsList" class="chefs-grid">
+            <!-- Dinamikusan töltendő -->
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-spinner hidden">
+            <p>Séfek betöltése...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message hidden">
+            <p>Hiba a séfek betöltésekor. Kérjük, próbálja később.</p>
+        </div>
+    </main>
+
+    <!-- Rental Modal -->
+    <div id="rentalModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2 id="modalTitle">Séf Bérlés</h2>
+            
+            <form id="rentalForm" class="rental-form">
+                <div class="form-group">
+                    <label for="chefName">Séf:</label>
+                    <p id="chefName" class="info-text"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="chefCuisine">Konyha típus:</label>
+                    <p id="chefCuisine" class="info-text"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="pricePerDay">Ár/nap:</label>
+                    <p id="pricePerDay" class="info-text"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="startDate">Kezdési dátum:</label>
+                    <input 
+                        type="date" 
+                        id="startDate" 
+                        class="form-input" 
+                        required
+                        aria-label="Bérlés kezdési dátuma"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="endDate">Befejezési dátum:</label>
+                    <input 
+                        type="date" 
+                        id="endDate" 
+                        class="form-input" 
+                        required
+                        aria-label="Bérlés befejezési dátuma"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Bérlési időtartam:</label>
+                    <p id="rentalDays" class="info-text">- nap</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Összesen:</label>
+                    <p id="totalPrice" class="info-text total-price">0 €</p>
+                </div>
+
+                <button type="submit" class="btn btn-submit" id="submitBtn">Bérlés Megerősítése</button>
+                <button type="button" class="btn btn-cancel" id="cancelBtn">Mégse</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
