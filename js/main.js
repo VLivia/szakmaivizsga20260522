@@ -92,25 +92,53 @@ async function handleRentalSubmit(e) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Feldolgozás...';
 
-        // Bérlés küldése - Demo: csak localStorage-ba mentjük
-        // Valós alkalmazásban: await submitRental(rentalData);
-        saveRentalToLocalStorage(rentalData);
+        // Bérlés küldése - Háttérszerverre (vagy localStorage fallback)
+        await submitRentalToBackend(rentalData);
 
-        showAlert(`✓ Bérlés sikeres! ${selectedChef.name} séf foglalva: ${days} napra`, 'success');
+        showAlert(`✓ Bérlés sikeres! ${selectedChef.name} séf foglalva ${days} napra (${formatDateHuman(startDate)} - ${formatDateHuman(endDate)})`, 'success');
         
-        // Modal bezárása
+        // Modal bezárása és forma reset
         setTimeout(() => {
             closeRentalModal();
             submitBtn.disabled = false;
             submitBtn.textContent = 'Bérlés Megerősítése';
-        }, 1000);
+        }, 1500);
 
     } catch (error) {
         console.error('Bérlés küldési hiba:', error);
-        showAlert('Hiba a bérlés rögzítésekor. Kérjük, próbálja később.', 'error');
+        showAlert(`✗ Hiba a bérlés rögzítésekor: ${error.message}`, 'error');
         const submitBtn = document.getElementById('submitBtn');
         submitBtn.disabled = false;
         submitBtn.textContent = 'Bérlés Megerősítése';
+    }
+}
+
+/**
+ * Bérlés küldése háttérszerverre vagy localStorage fallback
+ */
+async function submitRentalToBackend(rentalData) {
+    try {
+        // Próbálkozás a háttérszerver eléréséhez
+        const response = await fetch(`${BACKEND_URL}/rentals`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(rentalData),
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            console.log('Bérlés sikeres a háttérszerveren:', result);
+            return result;
+        } else {
+            throw new Error('Háttérszerver hiba');
+        }
+    } catch (backendError) {
+        // Fallback: localStorage mentés
+        console.warn('Háttérszerver nem elérhető, mentés localStorage-ba:', backendError.message);
+        saveRentalToLocalStorage(rentalData);
+        return { success: true, stored: 'local' };
     }
 }
 
