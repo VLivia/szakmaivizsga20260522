@@ -1,0 +1,301 @@
+uid,chefid,startdate,enddate,daily_rate,name,cuisine
+1,1,2025-08-19,2025-08-25,175,Sophia Ricci,Italian
+2,25,2025-07-11,2025-07-21,200,Brooke Baevsky,Modern American
+3,25,2025-05-18,2025-05-21,200,Brooke Baevsky,Modern American
+4,13,2025-03-13,2025-03-21,180,Nina Kim,Korean
+5,22,2025-04-10,2025-04-20,160,James Holt,Irish
+6,23,2025-11-22,2025-11-26,175,Ava Martinez,Caribbean
+7,3,2025-12-02,2025-12-11,200,Pamela Dawson,American
+8,19,2025-11-25,2025-12-08,170,Isabelle Dubois,Belgian
+9,18,2025-10-15,2025-10-21,185,Anil Sharma,Indian
+10,6,2025-09-15,2025-09-20,170,Oscar Weber,German
+11,1,2025-09-18,2025-09-21,175,Sophia Ricci,Italian
+12,26,2025-08-07,2025-08-16,180,Samir Patel,Middle Eastern
+13,15,2025-05-29,2025-06-07,185,Amelie Laurent,French
+14,3,2025-09-19,2025-09-28,200,Pamela Dawson,American
+15,18,2025-07-26,2025-07-29,185,Anil Sharma,Indian
+16,11,2025-07-07,2025-07-13,185,Claire Johnson,Greek
+17,11,2025-07-20,2025-08-01,185,Claire Johnson,Greek
+18,21,2025-03-24,2025-03-27,165,Greta Fischer,Austrian
+19,12,2025-05-10,2025-05-14,165,Carlos Mendes,Portuguese
+20,12,2025-01-02,2025-01-07,165,Carlos Mendes,Portuguese
+21,19,2025-01-03,2025-01-08,170,Isabelle Dubois,Belgian
+22,25,2025-06-18,2025-06-27,200,Brooke Baevsky,Modern American
+23,18,2025-09-03,2025-09-07,185,Anil Sharma,Indian
+24,27,2025-04-12,2025-04-25,180,Luca Bianchi,Italian
+25,24,2025-02-21,2025-02-23,170,Nicolas Moreau,Swiss
+26,7,2025-06-14,2025-06-22,190,Tiffany Moore,Vegetarian
+27,18,2025-03-19,2025-03-28,185,Anil Sharma,Indian
+28,5,2025-01-06,2025-01-11,190,Camila Ortega,Mexican
+29,19,2025-02-14,2025-02-21,170,Isabelle Dubois,Belgian
+30,25,2025-08-18,2025-08-26,200,Brooke Baevsky,Modern American
+31,17,2025-08-05,2025-08-07,170,Elisa Turner,British
+32,4,2025-04-19,2025-04-26,200,Marcus Evans,European
+33,3,2025-01-23,2025-01-29,200,Pamela Dawson,American
+34,12,2025-03-18,2025-03-22,165,Carlos Mendes,Portuguese
+35,15,2025-01-03,2025-01-15,185,Amelie Laurent,French
+36,8,2025-04-15,2025-04-25,175,Peter Novak,Eastern European
+37,15,2025-11-08,2025-11-14,185,Amelie Laurent,French
+38,21,2025-04-13,2025-04-15,165,Greta Fischer,Austrian
+39,16,2025-11-10,2025-11-22,195,Victor Lee,Japanese
+40,10,2025-12-01,2025-12-13,210,Roberto Holz,Argentinian
+41,12,2025-10-01,2025-10-13,165,Carlos Mendes,Portuguese
+42,8,2025-09-14,2025-09-26,175,Peter Novak,Eastern European
+43,14,2025-01-26,2025-02-03,190,Trenin Nubiru,African
+44,12,2025-11-26,2025-11-29,165,Carlos Mendes,Portuguese
+45,15,2025-12-17,2025-12-25,185,Amelie Laurent,French
+46,4,2025-09-16,2025-09-24,200,Marcus Evans,European
+47,6,2025-08-09,2025-08-22,170,Oscar Weber,German
+48,8,2025-10-06,2025-10-12,175,Peter Novak,Eastern European
+49,15,2025-10-09,2025-10-19,185,Amelie Laurent,French
+50,2,2025-06-28,2025-07-11,190,David Keller,French
+51,10,2025-05-10,2025-05-15,210,Roberto Holz,Argentinian
+52,23,2025-07-22,2025-08-03,175,Ava Martinez,Caribbean
+53,12,2025-11-13,2025-11-25,165,Carlos Mendes,Portuguese
+54,27,2025-08-29,2025-09-11,180,Luca Bianchi,Italian
+55,10,2025-05-01,2025-05-08,210,Roberto Holz,Argentinian
+56,11,2025-04-21,2025-05-03,185,Claire Johnson,Greek
+57,25,2025-03-04,2025-03-17,200,Brooke Baevsky,Modern American
+58,7,2025-07-02,2025-07-05,190,Tiffany Moore,Vegetarian
+59,1,2025-07-20,2025-07-23,175,Sophia Ricci,Italian
+60,16,2025-05-06,2025-05-14,195,Victor Lee,Japanese
+61,21,2025-02-20,2025-02-23,165,Greta Fischer,Austrian
+62,3,2025-04-12,2025-04-24,200,Pamela Dawson,American
+63,8,2025-06-24,2025-06-29,175,Peter Novak,Eastern European
+64,5,2025-10-13,2025-10-19,190,Camila Ortega,Mexican
+65,15,2025-06-28,2025-07-05,185,Amelie Laurent,French
+66,20,2025-02-29,2025-03-11,185,Alejandro Torres,Spanish
+67,10,2025-11-17,2025-11-30,210,Roberto Holz,Argentinian
+68,6,2025-06-08,2025-06-18,170,Oscar Weber,German
+69,1,2025-05-02,2025-05-04,175,Sophia Ricci,Italian
+70,13,2025-03-30,2025-04-11,180,Nina Kim,Korean
+71,6,2025-03-17,2025-03-30,170,Oscar Weber,German
+72,7,2025-08-08,2025-08-11,190,Tiffany Moore,Vegetarian
+73,9,2025-04-04,2025-04-09,180,Olivia Bennett,Asian
+74,26,2025-02-14,2025-02-22,180,Samir Patel,Middle Eastern
+75,21,2025-11-16,2025-11-22,165,Greta Fischer,Austrian
+76,4,2025-03-18,2025-03-29,200,Marcus Evans,European
+77,1,2025-03-15,2025-03-26,175,Sophia Ricci,Italian
+78,11,2025-04-05,2025-04-07,185,Claire Johnson,Greek
+79,26,2025-04-28,2025-05-08,180,Samir Patel,Middle Eastern
+80,11,2025-09-14,2025-09-23,185,Claire Johnson,Greek
+81,26,2025-12-20,2025-12-23,180,Samir Patel,Middle Eastern
+82,9,2025-02-13,2025-02-17,180,Olivia Bennett,Asian
+83,16,2025-03-21,2025-04-03,195,Victor Lee,Japanese
+84,1,2025-06-11,2025-06-21,175,Sophia Ricci,Italian
+85,25,2025-01-21,2025-01-27,200,Brooke Baevsky,Modern American
+86,10,2025-04-16,2025-04-28,210,Roberto Holz,Argentinian
+87,14,2025-12-14,2025-12-17,190,Trenin Nubiru,African
+88,21,2025-07-14,2025-07-20,165,Greta Fischer,Austrian
+89,9,2025-12-11,2025-12-15,180,Olivia Bennett,Asian
+90,18,2025-01-17,2025-01-29,185,Anil Sharma,Indian
+91,2,2025-02-20,2025-03-02,190,David Keller,French
+92,14,2025-10-08,2025-10-19,190,Trenin Nubiru,African
+93,1,2025-08-03,2025-08-13,175,Sophia Ricci,Italian
+94,20,2025-06-04,2025-06-15,185,Alejandro Torres,Spanish
+95,21,2025-10-11,2025-10-24,165,Greta Fischer,Austrian
+96,14,2025-09-15,2025-09-19,190,Trenin Nubiru,African
+97,27,2025-04-29,2025-05-11,180,Luca Bianchi,Italian
+98,19,2025-06-04,2025-06-14,170,Isabelle Dubois,Belgian
+99,13,2025-07-03,2025-07-11,180,Nina Kim,Korean
+100,8,2025-03-20,2025-03-22,175,Peter Novak,Eastern European
+101,9,2025-06-20,2025-07-01,180,Olivia Bennett,Asian
+102,9,2025-06-03,2025-06-08,180,Olivia Bennett,Asian
+103,8,2025-11-08,2025-11-17,175,Peter Novak,Eastern European
+104,26,2025-09-21,2025-10-04,180,Samir Patel,Middle Eastern
+105,10,2025-11-05,2025-11-15,210,Roberto Holz,Argentinian
+106,17,2025-09-18,2025-09-30,170,Elisa Turner,British
+107,19,2025-04-30,2025-05-10,170,Isabelle Dubois,Belgian
+108,14,2025-07-06,2025-07-17,190,Trenin Nubiru,African
+109,14,2025-05-24,2025-05-30,190,Trenin Nubiru,African
+110,18,2025-11-27,2025-11-30,185,Anil Sharma,Indian
+111,23,2025-04-03,2025-04-13,175,Ava Martinez,Caribbean
+112,9,2025-01-20,2025-01-30,180,Olivia Bennett,Asian
+113,16,2025-02-10,2025-02-21,195,Victor Lee,Japanese
+114,22,2025-07-22,2025-07-27,160,James Holt,Irish
+115,18,2025-02-01,2025-02-07,185,Anil Sharma,Indian
+116,13,2025-08-15,2025-08-23,180,Nina Kim,Korean
+117,3,2025-02-11,2025-02-20,200,Pamela Dawson,American
+118,16,2025-09-13,2025-09-16,195,Victor Lee,Japanese
+119,26,2025-01-25,2025-01-28,180,Samir Patel,Middle Eastern
+120,10,2025-05-26,2025-06-06,210,Roberto Holz,Argentinian
+121,18,2025-09-14,2025-09-20,185,Anil Sharma,Indian
+122,27,2025-06-10,2025-06-13,180,Luca Bianchi,Italian
+123,10,2025-07-21,2025-08-03,210,Roberto Holz,Argentinian
+124,6,2025-08-04,2025-08-07,170,Oscar Weber,German
+125,5,2025-09-29,2025-10-05,190,Camila Ortega,Mexican
+126,7,2025-05-29,2025-06-11,190,Tiffany Moore,Vegetarian
+127,4,2025-02-26,2025-02-29,200,Marcus Evans,European
+128,2,2025-06-12,2025-06-18,190,David Keller,French
+129,25,2025-08-03,2025-08-15,200,Brooke Baevsky,Modern American
+130,19,2025-09-19,2025-10-02,170,Isabelle Dubois,Belgian
+131,10,2025-09-07,2025-09-16,210,Roberto Holz,Argentinian
+132,17,2025-10-19,2025-10-23,170,Elisa Turner,British
+133,1,2025-02-05,2025-02-18,175,Sophia Ricci,Italian
+134,11,2025-03-03,2025-03-09,185,Claire Johnson,Greek
+135,24,2025-04-11,2025-04-20,170,Nicolas Moreau,Swiss
+136,8,2025-02-14,2025-02-27,175,Peter Novak,Eastern European
+137,12,2025-02-22,2025-03-04,165,Carlos Mendes,Portuguese
+138,4,2025-07-27,2025-07-29,200,Marcus Evans,European
+139,6,2025-12-26,2025-12-29,170,Oscar Weber,German
+140,17,2025-03-21,2025-03-23,170,Elisa Turner,British
+141,10,2025-06-29,2025-07-08,210,Roberto Holz,Argentinian
+142,16,2025-10-09,2025-10-14,195,Victor Lee,Japanese
+143,26,2025-11-29,2025-12-07,180,Samir Patel,Middle Eastern
+144,13,2025-12-28,2025-12-31,180,Nina Kim,Korean
+145,16,2025-11-27,2025-12-04,195,Victor Lee,Japanese
+146,14,2025-04-21,2025-05-01,190,Trenin Nubiru,African
+147,16,2025-02-25,2025-03-07,195,Victor Lee,Japanese
+148,16,2025-10-27,2025-11-06,195,Victor Lee,Japanese
+149,23,2025-03-21,2025-03-29,175,Ava Martinez,Caribbean
+150,25,2025-04-19,2025-04-27,200,Brooke Baevsky,Modern American
+151,18,2025-06-16,2025-06-26,185,Anil Sharma,Indian
+152,10,2025-08-26,2025-09-05,210,Roberto Holz,Argentinian
+153,22,2025-08-13,2025-08-19,160,James Holt,Irish
+154,5,2025-03-30,2025-04-12,190,Camila Ortega,Mexican
+155,5,2025-07-07,2025-07-18,190,Camila Ortega,Mexican
+156,2,2025-12-05,2025-12-13,190,David Keller,French
+157,1,2025-11-13,2025-11-19,175,Sophia Ricci,Italian
+158,2,2025-08-23,2025-08-30,190,David Keller,French
+159,13,2025-06-13,2025-06-20,180,Nina Kim,Korean
+160,11,2025-12-03,2025-12-05,185,Claire Johnson,Greek
+161,27,2025-02-08,2025-02-21,180,Luca Bianchi,Italian
+162,22,2025-08-30,2025-09-03,160,James Holt,Irish
+163,19,2025-03-15,2025-03-17,170,Isabelle Dubois,Belgian
+164,8,2025-03-27,2025-04-02,175,Peter Novak,Eastern European
+165,14,2025-03-06,2025-03-08,190,Trenin Nubiru,African
+166,8,2025-08-29,2025-09-05,175,Peter Novak,Eastern European
+167,3,2025-08-07,2025-08-20,200,Pamela Dawson,American
+168,3,2025-09-29,2025-10-12,200,Pamela Dawson,American
+169,8,2025-03-14,2025-03-17,175,Peter Novak,Eastern European
+170,16,2025-07-18,2025-07-29,195,Victor Lee,Japanese
+171,27,2025-04-02,2025-04-09,180,Luca Bianchi,Italian
+172,4,2025-02-06,2025-02-14,200,Marcus Evans,European
+173,6,2025-04-14,2025-04-17,170,Oscar Weber,German
+174,1,2025-01-07,2025-01-18,175,Sophia Ricci,Italian
+175,9,2025-07-27,2025-08-05,180,Olivia Bennett,Asian
+176,13,2025-06-04,2025-06-09,180,Nina Kim,Korean
+177,18,2025-04-16,2025-04-28,185,Anil Sharma,Indian
+178,14,2025-01-04,2025-01-11,190,Trenin Nubiru,African
+179,2,2025-11-04,2025-11-11,190,David Keller,French
+180,21,2025-11-23,2025-11-26,165,Greta Fischer,Austrian
+181,20,2025-08-25,2025-09-02,185,Alejandro Torres,Spanish
+182,20,2025-01-09,2025-01-21,185,Alejandro Torres,Spanish
+183,20,2025-08-12,2025-08-22,185,Alejandro Torres,Spanish
+184,25,2025-10-15,2025-10-28,200,Brooke Baevsky,Modern American
+185,6,2025-05-08,2025-05-21,170,Oscar Weber,German
+186,26,2025-06-02,2025-06-10,180,Samir Patel,Middle Eastern
+187,14,2025-10-27,2025-10-30,190,Trenin Nubiru,African
+188,22,2025-06-19,2025-06-25,160,James Holt,Irish
+189,17,2025-04-01,2025-04-10,170,Elisa Turner,British
+190,5,2025-01-03,2025-01-05,190,Camila Ortega,Mexican
+191,3,2025-07-31,2025-08-04,200,Pamela Dawson,American
+192,3,2025-05-23,2025-05-31,200,Pamela Dawson,American
+193,13,2025-05-23,2025-06-01,180,Nina Kim,Korean
+194,25,2025-11-28,2025-12-09,200,Brooke Baevsky,Modern American
+195,9,2025-11-12,2025-11-25,180,Olivia Bennett,Asian
+196,7,2025-02-12,2025-02-15,190,Tiffany Moore,Vegetarian
+197,27,2025-09-22,2025-09-24,180,Luca Bianchi,Italian
+198,20,2025-07-09,2025-07-15,185,Alejandro Torres,Spanish
+199,2,2025-01-30,2025-02-10,190,David Keller,French
+200,24,2025-10-12,2025-10-18,170,Nicolas Moreau,Swiss
+201,26,2025-10-14,2025-10-16,180,Samir Patel,Middle Eastern
+202,2,2025-03-21,2025-03-25,190,David Keller,French
+203,7,2025-01-14,2025-01-18,190,Tiffany Moore,Vegetarian
+204,13,2025-12-15,2025-12-21,180,Nina Kim,Korean
+205,6,2025-01-25,2025-02-02,170,Oscar Weber,German
+206,5,2025-11-28,2025-12-06,190,Camila Ortega,Mexican
+207,11,2025-12-19,2025-12-28,185,Claire Johnson,Greek
+208,10,2025-09-22,2025-09-27,210,Roberto Holz,Argentinian
+209,6,2025-08-29,2025-09-05,170,Oscar Weber,German
+210,2,2025-01-13,2025-01-20,190,David Keller,French
+211,20,2025-11-29,2025-12-05,185,Alejandro Torres,Spanish
+212,15,2025-03-18,2025-03-20,185,Amelie Laurent,French
+213,12,2025-07-11,2025-07-15,165,Carlos Mendes,Portuguese
+214,21,2025-07-26,2025-08-08,165,Greta Fischer,Austrian
+215,8,2025-08-21,2025-08-24,175,Peter Novak,Eastern European
+216,18,2025-08-13,2025-08-22,185,Anil Sharma,Indian
+217,17,2025-06-28,2025-07-09,170,Elisa Turner,British
+218,9,2025-11-04,2025-11-11,180,Olivia Bennett,Asian
+219,18,2025-09-10,2025-09-12,185,Anil Sharma,Indian
+220,23,2025-05-03,2025-05-09,175,Ava Martinez,Caribbean
+221,11,2025-01-25,2025-02-03,185,Claire Johnson,Greek
+222,3,2025-03-01,2025-03-04,200,Pamela Dawson,American
+223,24,2025-10-04,2025-10-10,170,Nicolas Moreau,Swiss
+224,13,2025-02-07,2025-02-12,180,Nina Kim,Korean
+225,7,2025-09-15,2025-09-28,190,Tiffany Moore,Vegetarian
+226,23,2025-08-25,2025-08-29,175,Ava Martinez,Caribbean
+227,17,2025-04-30,2025-05-07,170,Elisa Turner,British
+228,21,2025-05-13,2025-05-16,165,Greta Fischer,Austrian
+229,20,2025-01-30,2025-02-02,185,Alejandro Torres,Spanish
+230,8,2025-05-26,2025-05-31,175,Peter Novak,Eastern European
+231,21,2025-09-22,2025-09-25,165,Greta Fischer,Austrian
+232,23,2025-06-13,2025-06-15,175,Ava Martinez,Caribbean
+233,17,2025-10-30,2025-11-06,170,Elisa Turner,British
+234,7,2025-02-28,2025-03-07,190,Tiffany Moore,Vegetarian
+235,22,2025-03-25,2025-03-28,160,James Holt,Irish
+236,13,2025-10-24,2025-11-05,180,Nina Kim,Korean
+237,6,2025-12-07,2025-12-16,170,Oscar Weber,German
+238,3,2025-07-04,2025-07-08,200,Pamela Dawson,American
+239,5,2025-02-16,2025-02-29,190,Camila Ortega,Mexican
+240,15,2025-04-20,2025-04-23,185,Amelie Laurent,French
+241,16,2025-04-22,2025-05-02,195,Victor Lee,Japanese
+242,22,2025-12-01,2025-12-06,160,James Holt,Irish
+243,3,2025-01-03,2025-01-13,200,Pamela Dawson,American
+244,12,2025-10-14,2025-10-17,165,Carlos Mendes,Portuguese
+245,15,2025-04-11,2025-04-17,185,Amelie Laurent,French
+246,13,2025-09-28,2025-10-07,180,Nina Kim,Korean
+247,2,2025-05-24,2025-06-05,190,David Keller,French
+248,12,2025-05-27,2025-06-03,165,Carlos Mendes,Portuguese
+249,21,2025-10-28,2025-11-01,165,Greta Fischer,Austrian
+250,25,2025-04-03,2025-04-06,200,Brooke Baevsky,Modern American
+251,7,2025-10-02,2025-10-08,190,Tiffany Moore,Vegetarian
+252,27,2025-08-03,2025-08-14,180,Luca Bianchi,Italian
+253,26,2025-07-09,2025-07-18,180,Samir Patel,Middle Eastern
+254,25,2025-07-04,2025-07-08,200,Brooke Baevsky,Modern American
+255,13,2025-11-19,2025-11-24,180,Nina Kim,Korean
+256,19,2025-08-16,2025-08-26,170,Isabelle Dubois,Belgian
+257,21,2025-05-22,2025-06-03,165,Greta Fischer,Austrian
+258,14,2025-02-08,2025-02-19,190,Trenin Nubiru,African
+259,13,2025-07-18,2025-07-27,180,Nina Kim,Korean
+260,17,2025-07-17,2025-07-22,170,Elisa Turner,British
+261,11,2025-05-21,2025-05-31,185,Claire Johnson,Greek
+262,13,2025-11-28,2025-12-09,180,Nina Kim,Korean
+263,11,2025-06-17,2025-06-26,185,Claire Johnson,Greek
+264,20,2025-09-22,2025-10-02,185,Alejandro Torres,Spanish
+265,14,2025-07-20,2025-07-24,190,Trenin Nubiru,African
+266,24,2025-02-28,2025-03-08,170,Nicolas Moreau,Swiss
+267,12,2025-01-08,2025-01-17,165,Carlos Mendes,Portuguese
+268,25,2025-08-31,2025-09-09,200,Brooke Baevsky,Modern American
+269,11,2025-06-28,2025-07-05,185,Claire Johnson,Greek
+270,15,2025-01-24,2025-02-01,185,Amelie Laurent,French
+271,17,2025-10-06,2025-10-15,170,Elisa Turner,British
+272,6,2025-01-09,2025-01-16,170,Oscar Weber,German
+273,23,2025-01-02,2025-01-14,175,Ava Martinez,Caribbean
+274,12,2025-06-19,2025-06-29,165,Carlos Mendes,Portuguese
+275,23,2025-11-10,2025-11-19,175,Ava Martinez,Caribbean
+276,10,2025-01-21,2025-01-31,210,Roberto Holz,Argentinian
+277,20,2025-05-14,2025-05-19,185,Alejandro Torres,Spanish
+278,20,2025-11-06,2025-11-12,185,Alejandro Torres,Spanish
+279,11,2025-11-15,2025-11-20,185,Claire Johnson,Greek
+280,8,2025-01-04,2025-01-17,175,Peter Novak,Eastern European
+281,1,2025-01-24,2025-02-01,175,Sophia Ricci,Italian
+282,13,2025-01-09,2025-01-21,180,Nina Kim,Korean
+283,27,2025-05-31,2025-06-03,180,Luca Bianchi,Italian
+284,17,2025-06-09,2025-06-14,170,Elisa Turner,British
+285,27,2025-01-05,2025-01-15,180,Luca Bianchi,Italian
+286,15,2025-09-17,2025-09-29,185,Amelie Laurent,French
+287,6,2025-03-12,2025-03-14,170,Oscar Weber,German
+288,11,2025-10-22,2025-11-03,185,Claire Johnson,Greek
+289,6,2025-07-08,2025-07-21,170,Oscar Weber,German
+290,26,2025-08-31,2025-09-05,180,Samir Patel,Middle Eastern
+291,17,2025-01-05,2025-01-09,170,Elisa Turner,British
+292,25,2025-09-22,2025-10-04,200,Brooke Baevsky,Modern American
+293,25,2025-02-09,2025-02-20,200,Brooke Baevsky,Modern American
+294,26,2025-11-16,2025-11-22,180,Samir Patel,Middle Eastern
+295,19,2025-11-06,2025-11-16,170,Isabelle Dubois,Belgian
+296,9,2025-09-09,2025-09-11,180,Olivia Bennett,Asian
+297,9,2025-05-09,2025-05-13,180,Olivia Bennett,Asian
+298,9,2025-10-03,2025-10-08,180,Olivia Bennett,Asian
+299,19,2025-07-12,2025-07-18,170,Isabelle Dubois,Belgian
+300,25,2025-03-26,2025-03-30,200,Brooke Baevsky,Modern American
