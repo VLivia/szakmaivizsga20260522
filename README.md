@@ -71,4 +71,4 @@ Vizsga dátum: 2026. május 22.
 
 ---
 
-Minden visszajelzés és fejlesztési ötlet üdvözlött! 🚀
+
